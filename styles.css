@@ -146,6 +146,9 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     font-size: 3rem;
     transition: transform 0.3s ease;
+    /* Ensure each battle card has consistent width regardless of label length */
+    min-width: 8rem; /* ~128px to fit longer names like 'Scissors' */
+    flex: 0 0 auto;
 }
 
 /* Shake animation used during the battle to build tension */
