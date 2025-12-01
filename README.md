@@ -18,18 +18,6 @@ This project is a modern and responsive take on the classic **Rock–Paper–Sci
 4. The computer will randomly choose its weapon, and the winner is determined based on the rules of the game.
 5. Score is updated after each round, and the player with the highest score at the end of the game wins!
 
-## How to Deploy
-
-1. Fork or clone this repository to your GitHub account.
-2. Push your files to your repository.
-3. Go to your repository settings, and under the **GitHub Pages** section, select the main branch as the source.
-4. Your game will be live at `https://<your-username>.github.io/<repository-name>/`.
-
-## Customizing
-
-- You can easily add more weapons or change the rules by editing the `script.js` file.
-- The game is fully customizable, and you can change the appearance by modifying the `styles.css`.
-
 ---
 
 Enjoy the game, and happy playing!
