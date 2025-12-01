@@ -1,0 +1,190 @@
+/*
+ * General styles for the Rock Paper Scissors game.
+ * The design is clean and modern with a soft colour palette.
+ * The layout adapts to smaller screens using flexbox and media queries.
+ */
+
+/* Import a basic sans‑serif font family */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(120deg, #eff7ff, #dbeafe);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1f2937;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    width: 95%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.round {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #4b5563;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.choice {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.choice img {
+    width: 80px;
+    height: 80px;
+    user-select: none;
+}
+
+.choice span {
+    display: block;
+    margin-top: 0.3rem;
+    font-weight: 500;
+}
+
+.choice:hover {
+    transform: scale(1.1);
+}
+
+.result {
+    min-height: 2rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #2563eb;
+}
+
+/* Overlay that appears when choosing an upgrade */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+.upgrade-modal {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.upgrade-modal h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.upgrades {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.upgrade-card {
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 1rem;
+    flex: 1 1 30%;
+    min-width: 160px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.upgrade-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.upgrade-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+.upgrade-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Reveal box shown when player chooses to see the computer's next move */
+.reveal-box {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    background: #fdf6b2;
+    border: 1px solid #fcefc7;
+    border-radius: 5px;
+    color: #92400e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .choice img {
+        width: 60px;
+        height: 60px;
+    }
+    .upgrade-card {
+        flex: 1 1 100%;
+    }
+}

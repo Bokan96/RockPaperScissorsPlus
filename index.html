@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <!-- Link to our stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <!-- Scoreboard displaying the current score -->
+        <div class="scoreboard">
+            <span id="playerScore">You: 0</span>
+            <span id="computerScore">Computer: 0</span>
+        </div>
+        <!-- Current round indicator -->
+        <div class="round">Round <span id="roundNumber">1</span></div>
+        <!-- Selection buttons for rock, paper and scissors -->
+        <div class="choices">
+            <button class="choice" data-choice="rock">
+                <img src="assets/rock.png" alt="Rock">
+                <span>Rock</span>
+            </button>
+            <button class="choice" data-choice="paper">
+                <img src="assets/paper.png" alt="Paper">
+                <span>Paper</span>
+            </button>
+            <button class="choice" data-choice="scissors">
+                <img src="assets/scissors.png" alt="Scissors">
+                <span>Scissors</span>
+            </button>
+        </div>
+        <!-- Area where the result of each round is displayed -->
+        <div class="result" id="resultMessage"></div>
+    </div>
+    <!-- Upgrade overlay appears every third round -->
+    <div class="overlay" id="upgradeOverlay">
+        <div class="upgrade-modal">
+            <h2>Choose an Upgrade</h2>
+            <div class="upgrades">
+                <div class="upgrade-card" data-upgrade="double">
+                    <h3>Double Points</h3>
+                    <p>Next round, win scores 2 points</p>
+                </div>
+                <div class="upgrade-card" data-upgrade="shield">
+                    <h3>Invincibility</h3>
+                    <p>Next round, you can't lose</p>
+                </div>
+                <div class="upgrade-card" data-upgrade="reveal">
+                    <h3>See Computer's Move</h3>
+                    <p>Before playing, see the computer's next choice</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Link to our JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
