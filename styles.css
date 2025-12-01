@@ -66,20 +66,121 @@ h1 {
     transition: transform 0.2s;
 }
 
-.choice img {
-    width: 80px;
-    height: 80px;
-    user-select: none;
-}
-
-.choice span {
-    display: block;
-    margin-top: 0.3rem;
-    font-weight: 500;
+/* Structure of each choice button now includes an emoji, a label and a durability counter. */
+.choice {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem;
+    text-align: center;
+    transition: transform 0.2s;
+    min-width: 80px;
 }
 
 .choice:hover {
     transform: scale(1.1);
+}
+
+.choice .emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.choice .label {
+    display: block;
+    margin-top: 0.2rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Durability counter sits in the upper right corner of each weapon button.  It uses a semi‑transparent
+   background so it blends nicely over the emoji while still being readable. */
+.choice .durability {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1f2937;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Visually indicate that a weapon is depleted */
+.choice.disabled {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Area where we show the two icons during a round */
+/* The battle field holds the player's and computer's chosen icons side by side.  It uses flexbox
+   for alignment and remains hidden until a round is played. */
+.battle-field {
+    display: none;
+    margin-top: 1rem;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+/* Each icon in the battle field */
+/* Each icon shown during the battle.  We remove the solid white card and instead rely on the
+   emoji itself.  A subtle shadow keeps it legible on the light gradient background. */
+.battle-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    font-size: 3rem;
+    transition: transform 0.3s ease;
+}
+
+/* Shake animation used during the battle to build tension */
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-3px, 0); }
+    40% { transform: translate(3px, 0); }
+    60% { transform: translate(-3px, 0); }
+    80% { transform: translate(3px, 0); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Pop animation used on the winner icon to give it a playful bounce after the outcome is revealed */
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+/* Highlight winner and loser after the battle */
+.winner {
+    border: 3px solid #22c55e;
+    box-shadow: 0 0 10px rgba(34,197,94,0.4);
+    animation: pop 0.3s ease;
+    transform: scale(1.05);
+}
+.loser {
+    border: 3px solid #ef4444;
+    box-shadow: 0 0 10px rgba(239,68,68,0.4);
+    opacity: 0.8;
+    transform: scale(0.95);
 }
 
 .result {

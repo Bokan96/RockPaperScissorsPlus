@@ -17,41 +17,38 @@
         </div>
         <!-- Current round indicator -->
         <div class="round">Round <span id="roundNumber">1</span></div>
-        <!-- Selection buttons for rock, paper and scissors -->
-        <div class="choices">
-            <button class="choice" data-choice="rock">
-                <img src="assets/rock.png" alt="Rock">
-                <span>Rock</span>
+        <!-- Selection buttons for the available weapons.  Each button contains an emoji, a label and a
+             durability counter that will be updated via JavaScript.  The native title attribute shows
+             what the weapon can defeat on hover. -->
+        <div class="choices" id="choicesContainer">
+            <button class="choice" data-choice="rock" title="Beats: scissors, fire">
+                <span class="emoji" aria-hidden="true">🪨</span>
+                <span class="label">Rock</span>
+                <span class="durability" id="durability-rock">3</span>
             </button>
-            <button class="choice" data-choice="paper">
-                <img src="assets/paper.png" alt="Paper">
-                <span>Paper</span>
+            <button class="choice" data-choice="paper" title="Beats: rock, air">
+                <span class="emoji" aria-hidden="true">📄</span>
+                <span class="label">Paper</span>
+                <span class="durability" id="durability-paper">3</span>
             </button>
-            <button class="choice" data-choice="scissors">
-                <img src="assets/scissors.png" alt="Scissors">
-                <span>Scissors</span>
+            <button class="choice" data-choice="scissors" title="Beats: paper, air">
+                <span class="emoji" aria-hidden="true">✂️</span>
+                <span class="label">Scissors</span>
+                <span class="durability" id="durability-scissors">3</span>
             </button>
         </div>
+        <!-- Placeholder where the computer's and player's chosen icons will be displayed with animations -->
+        <div class="battle-field" id="battleField" aria-live="polite"></div>
         <!-- Area where the result of each round is displayed -->
         <div class="result" id="resultMessage"></div>
     </div>
-    <!-- Upgrade overlay appears every third round -->
+    <!-- Upgrade overlay appears every third round.  It allows the player to add new weapons (fire or air)
+         into the game.  The options are populated dynamically based on which upgrades remain. -->
     <div class="overlay" id="upgradeOverlay">
         <div class="upgrade-modal">
-            <h2>Choose an Upgrade</h2>
-            <div class="upgrades">
-                <div class="upgrade-card" data-upgrade="double">
-                    <h3>Double Points</h3>
-                    <p>Next round, win scores 2 points</p>
-                </div>
-                <div class="upgrade-card" data-upgrade="shield">
-                    <h3>Invincibility</h3>
-                    <p>Next round, you can't lose</p>
-                </div>
-                <div class="upgrade-card" data-upgrade="reveal">
-                    <h3>See Computer's Move</h3>
-                    <p>Before playing, see the computer's next choice</p>
-                </div>
+            <h2>Add a New Weapon</h2>
+            <div class="upgrades" id="upgradeOptions">
+                <!-- Options will be inserted here via JavaScript -->
             </div>
         </div>
     </div>
