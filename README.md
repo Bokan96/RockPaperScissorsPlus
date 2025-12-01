@@ -12,6 +12,7 @@ This project is a modern and responsive take on the classic **Rock–Paper–Sci
 
 ## How to Play
 
+0. Game is available live on: https://bokan96.github.io/RockPaperScissorsPlus/
 1. Choose your weapon: Rock 🪨, Paper 📄, or Scissors ✂️.
 2. Each weapon can be used up to 3 times. After that, it will be disabled.
 3. Every third round, you can unlock a new weapon (Fire 🔥 or Air 💨) to add to your choices.
